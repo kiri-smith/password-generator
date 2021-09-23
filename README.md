@@ -17,7 +17,7 @@ For this project, I modified existing html, css, and javascript code to create a
 
 ## Deployed Link
 
-* [https://kiri-smith.github.io/basic-portfolio/](#)
+* [https://kiri-smith.github.io/password-generator/](#)
 
 ## Author
 
