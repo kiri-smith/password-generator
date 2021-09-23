@@ -26,41 +26,38 @@ var numbers =["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 // We need a function to handle the prompts
 function passwordPrompts() {
     // we want to make a variable that stores the length of the password 
-    var length = parseInt(prompt('what is the length of your password'),10)
-    // a conditional statement to ensure the desired password length
+    var length = parseInt(prompt("What is the length of your password?"),10)
+    // we want a conditional statement to ensure the desired password length
     if(length > 128 || length < 8) {
-        alert('must be less than 128 characters and greater than 8')
+        alert("Password must be less than 128 characters and greater than 8")
         return null;
     }
-    // declaring and adding confirms for the diff password options
-    var wantNumbers = confirm('Select ok for numbers in your password');
-    var wantLower = confirm('Select ok for lowercase letters in your password');
-    var wantUpper = confirm('Select ok for uppercase letters in your password');
-    var wantChar = confirm('Select ok for special characters in your password');
+    // we want to declare and add confirms for the different password options
+    var wantNumbers = confirm("Select ok for numbers in your password");
+    var wantLower = confirm("Select ok for lowercase letters in your password");
+    var wantUpper = confirm("Select ok for uppercase letters in your password");
+    var wantChar = confirm("Select ok for special characters in your password");
 
-// ways to store info, objects, empty arrays, local & session storage, cookies and cache, and indexedDB and databases like mysql and mongodb
-// JSON = javascript object notation
-// the key can be anything 
-// will need to add wantUpper and wantChar
+// we need to store the info that the user chooses
 var promptOptions=  {
     wantNumbers: wantNumbers,
     wantLower: wantLower,
-
-
+    wantUpper: wantUpper,
+    wantChar: wantChar,
 };
-// store the object so we can use the keys later on
+
 return promptOptions;
 
 }
 
-// make a function that generates random things 
+// we need a function that generates random things 
 function getRandomChar(array) {
     var random = Math.floor(Math.random() * array.length)
     var finalRandom = array[random];
     return finalRandom;
 }
 
-// function name obtained from provided code
+// we need to use the given function to generate the password options
 function generatePassword(){
     var prompts = passwordPrompts();
     var possibleOptions = [];
@@ -70,11 +67,23 @@ function generatePassword(){
         possibleOptions = possibleOptions.concat(numbers);
         confirmedOptions.push(getRandomChar(numbers))
     }
+    if(prompts.wantLower) {
+      possibleOptions = possibleOptions.concat(lower);
+      confirmedOptions.push(getRandomChar(lower))
+    }
+    if(prompts.wantUpper) {
+    possibleOptions = possibleOptions.concat(upper);
+    confirmedOptions.push(getRandomChar(upper))
+    }
+    if(prompts.wantChar) {
+      possibleOptions = possibleOptions.concat(character);
+      confirmedOptions.push(getRandomChar(character))
+    }
 
-    // to iterate over the length of the password from the object 
-    // one for loop for possibleOptions and one for confirmOptions
+    // we need to iterate over the length of the password from the object 
+    // we need a "for loop" for possibleOptions and another for confirmOptions
     
-    // change from array to string 
+    // we need to change the array to a string 
     return final.join('')
 }
 
