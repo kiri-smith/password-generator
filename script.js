@@ -81,8 +81,18 @@ function generatePassword(){
     }
 
     // we need to iterate over the length of the password from the object 
-    // we need a "for loop" for possibleOptions and another for confirmOptions
-    
+    for (i = 0; i < length; i++) {
+    console.log(getRandomChar[i]);
+}
+    // we need a "for loop" for possibleOptions and another for confirmedOptions
+    for (i = 0; i < possibleOptions.length; i++) {
+      console.log(possibleOptions);
+    }
+
+    for (i = 0; i < confirmedOptions.length; i++) {
+      console.log(confirmedOptions);
+    }
+
     // we need to change the array to a string 
     return final.join('')
 }
