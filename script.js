@@ -44,6 +44,7 @@ var promptOptions=  {
     wantLower: wantLower,
     wantUpper: wantUpper,
     wantChar: wantChar,
+    length: length,
 };
 
 return promptOptions;
@@ -65,33 +66,27 @@ function generatePassword(){
     var final = [];
     if(prompts.wantNumbers) {
         possibleOptions = possibleOptions.concat(numbers);
-        confirmedOptions.push(getRandomChar(numbers))
+        //confirmedOptions.push(getRandomChar(numbers))
     }
     if(prompts.wantLower) {
       possibleOptions = possibleOptions.concat(lower);
-      confirmedOptions.push(getRandomChar(lower))
+      //confirmedOptions.push(getRandomChar(lower))
     }
     if(prompts.wantUpper) {
     possibleOptions = possibleOptions.concat(upper);
-    confirmedOptions.push(getRandomChar(upper))
+    //confirmedOptions.push(getRandomChar(upper))
     }
     if(prompts.wantChar) {
       possibleOptions = possibleOptions.concat(character);
-      confirmedOptions.push(getRandomChar(character))
+      //confirmedOptions.push(getRandomChar(character))
     }
 
     // we need to iterate over the length of the password from the object 
-    for (i = 0; i < length; i++) {
-    console.log(getRandomChar[i]);
+    for (i = 0; i < prompts.length; i++) {
+    //console.log(getRandomChar[i]);
+    
+      final.push(getRandomChar(possibleOptions));
 }
-    // we need a "for loop" for possibleOptions and another for confirmedOptions
-    for (i = 0; i < possibleOptions.length; i++) {
-      console.log(possibleOptions);
-    }
-
-    for (i = 0; i < confirmedOptions.length; i++) {
-      console.log(confirmedOptions);
-    }
 
     // we need to change the array to a string 
     return final.join('')
